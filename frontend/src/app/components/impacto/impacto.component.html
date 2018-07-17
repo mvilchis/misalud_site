@@ -1,0 +1,575 @@
+<section class="titulos">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h4>
+        IMPACTO</h4>
+        <p> En esta sección podrás ver cómo califican las usuarias de mi<strong>salud</strong> a los servicios médicos después de su cita. Se incluyen también datos de alertas canalizadas a la Línea 01800 MATERNA. Finalmente se presenta el número de usuarias
+          que han decidido darse de baja de mi<strong>salud</strong>, según sus características y razones para la cancelación.
+        </p>
+
+
+      </div>
+    </div>
+
+  </div>
+
+
+</section>
+
+<section style="background-color: #efefef;padding-top:1%">
+  <div class="container">
+    <div class="row">
+
+
+
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <h3 class="text_date">Inicio</h3>
+
+
+        <div class="select_date_to">
+          <select class="form-control " [(ngModel)]="i_mes" (change)="changeMonth(1)">
+
+                            <option *ngFor="let mes of meses_inicio;let i =index " value="{{i+1}}">{{mes}}</option>
+               </select>
+        </div>
+
+        <div class="select_date_to">
+          <select class="form-control " [(ngModel)]="i_year" (change)="changeMonth(1)">
+
+                 <option *ngFor="let year of years_inicio" value="{{year}}">{{year}}</option>
+            </select>
+
+        </div>
+
+
+
+
+
+
+
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <h3 class="text_date">Fin</h3>
+        <div class="select_date_to">
+          <select class="form-control " [(ngModel)]="f_mes" (change)="changeMonth(2)">
+
+                          <option *ngFor="let mes of meses_fin; let i =index " value="{{i+1}}">{{mes}}</option>
+
+             </select>
+        </div>
+        <div class="select_date_to">
+          <select class="form-control " [(ngModel)]="f_year" (change)="changeMonth(2)">
+
+               <option *ngFor="let year of years_fin" value="{{year}}">{{year}}</option>
+
+              </select>
+        </div>
+
+
+
+
+      </div>
+
+      <div *ngIf="invalido" class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="padding-top:4%;">
+        <div class="alert alert-danger alert-dismissible " role="alert">
+          <strong>La fecha inicial </strong> no puede ser mayor a la fecha final.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <br>
+  <br>
+
+</section>
+
+<section style="background-color: #efefef;padding-bottom:4%">
+
+  <div class="container">
+
+    <div class="row">
+
+
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="card" id="doble">
+          <div class="header bg-green">
+            <h2>
+                              Calidad Clínica
+                            </h2>
+            <div id="help_calidad" class="tool_help"><span></span>
+              <p>{{help_txt_calidad}}</p>
+            </div>
+            <ul class="header-dropdown m-r-0">
+
+              <li>
+
+                <img src="assets/img/help.png" alt="" (mousemove)="help_enter(0)" (mouseout)="help_out(0)">
+
+
+
+
+
+              </li>
+            </ul>
+          </div>
+
+          <div class="header_three bg-white">
+            <div class="select">
+              <select id="doble_var" class="form-control" [(ngModel)]="calidad_op" (change)="doble_change()" style="border: none">
+
+ <option value="calidad_crecimuterino">Embarazo - Crecimiento Uterino</option>
+ <option value="calidad_signosalarma">Embarazo - Explicación de signos alarma</option>
+ <option value="calidad_presionarterial">Embarazo - Medición de presión arterial</option>
+<option value="calidad_antropometria">Bebés - ¿Se pesó y midió al bebé?</option>
+  <option value="calidad_lactancia">Bebés - Tips de lactancia</option>
+    <option value="calidad_vacunas"> Bebés - Vacunas</option>
+
+</select>
+            </div>
+          </div>
+          <div class="header_three bg-white">
+            <div class="select">
+              <select id="doble_sub" class="form-control " [(ngModel)]="doble_bar_opction" (change)="doble_change()" style="border: none">
+      <option value="doble_mAge">Edad de mamá</option>
+      <option *ngIf="calidad_op != 'calidad_crecimuterino'&& calidad_op != 'calidad_signosalarma' && calidad_op != 'calidad_presionarterial'" value="doble_bbyAage">Edad del bebé</option>
+      <option value="doble_sGestacion">Semanas de gestación al nacer</option>
+      <option value="doble_aMedica">Afiliación médica de la mamá </option>
+      <option value="doble_medio">Medio </option>
+
+      </select>
+            </div>
+          </div>
+
+
+
+
+
+
+          <div class="body">
+
+            <div align="center">
+              <p class="total_text">Total: <strong>{{total_calidad | number}} </strong>
+                <button type="button" class="expandir" data-toggle="modal" data-target="#modal_calidad" [disabled]="chart_calidad==false"><img src="assets/img/expand.png" alt="Expandir"></button>
+                <button type="button" class="expandir" (click)="descarga_chart('#chart_doble','#lgn_doble','calidadClinica')" [disabled]="!chart_calidad"><img src="assets/img/print.png" alt="Descargar"></button>
+
+              </p>
+
+
+
+            </div>
+            <div align="left">
+              <p class="total_text" style="padding-left:5%">
+                <img src="assets/img/si_impacto.png"> Si - <img *ngIf="deviceInfo.browser != 'safari'" src="assets/img/no_impacto.png"><img *ngIf="deviceInfo.browser == 'safari'" src="assets/img/no_safari.png"> No </p>
+            </div>
+
+            <div *ngIf="!chart_calidad" style="height:260px;padding:20%">
+
+              <div class="alert alert-success text-center" role="alert">
+                <strong>No hay datos disponibles</strong>
+              </div>
+
+            </div>
+
+            <div id="chart_doble" style="width:100%;padding:2% 0">
+
+            </div>
+
+
+          </div>
+          <div id="tool_doble" class="tooltipMapa"></div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="content-lgnd-impacto">
+                <div id="lgn_doble" class="lgnd-impacto"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="card">
+
+          <div class="header bg-green">
+            <h2>
+                              Cancelación de misalud
+                           </h2>
+
+            <div id="help_cancel" class="tool_help"><span></span>
+              <p>{{help_txt_cancel}}</p>
+            </div>
+            <ul class="header-dropdown m-r-0">
+
+              <li>
+                <img src="assets/img/help.png" alt="" (mousemove)="help_enter(1)" (mouseout)="help_out(1)">
+
+
+
+
+              </li>
+            </ul>
+          </div>
+          <div class="header_three bg-white">
+            <div class="select">
+              <select id="simple_var" class="custom-select " [(ngModel)]="simple_bar_opcion" (change)="simple_bar_change('none')" style="border: none">
+
+                   <option value="simple_tipo">Tipo</option>
+                    <option value="simple_mom">Edad de la mamá</option>
+                    <option value="simple_bby">Edad del bebé</option>
+                    <option value="simple_aten">Atencion médica</option>
+                      <option value="simple_medio">Medio</option>
+                        <option value="simple_razon">Razón de cancelación</option>
+
+                  </select>
+            </div>
+          </div>
+          <div class="header_three bg-white">
+            <div class="select">
+              <select id="simple_sub" class="custom-select " *ngIf="simple_bar_opcion=='simple_tipo'" [(ngModel)]="sub_cancel_op" (change)="simple_bar_change()" style="border: none">
+
+  <option   value="baby">Mamás</option>
+  <option   value="pregnant">Embarazadas</option>
+  <option   value="personal">Personal Salud</option>
+
+  </select>
+
+              <select id="simple_sub" class="custom-select " *ngIf="simple_bar_opcion=='simple_mom'" [(ngModel)]="sub_cancel_op" (change)="simple_bar_change()" style="border: none">
+
+  <option   value="0">0 a 19 años</option>
+  <option   value="1">19 a 35 años</option>
+  <option   value="2">Más de 35</option>
+
+  </select>
+
+              <select id="simple_sub" class="custom-select " *ngIf="simple_bar_opcion=='simple_bby'" [(ngModel)]="sub_cancel_op" (change)="simple_bar_change()" style="border: none">
+
+  <option   value="0">Recién nacido </option>
+  <option   value="1">0 a 3 meses </option>
+  <option   value="2"> 4 a 6 meses</option>
+  <option   value="3">7 a 9 meses </option>
+  <option   value="4">10 a 12 meses </option>
+  <option   value="5"> 13 a 15 meses</option>
+  <option   value="6"> 16 a 18 meses</option>
+  <option   value="7">19 a 21 meses </option>
+  <option   value="8">2 años </option>
+
+
+  </select>
+
+              <select id="simple_sub" class="custom-select " *ngIf="simple_bar_opcion=='simple_aten'" [(ngModel)]="sub_cancel_op" (change)="simple_bar_change()" style="border: none">
+          <option   value="0">Recibe atención médica / IMSS </option>
+          <option   value="1">Recibe atención médica / ISSSTE </option>
+          <option   value="2">Recibe atención médica / Seguro Popular </option>
+          <option   value="3">Recibe atención médica / Inst Nac. </option>
+          <option   value="4">Recibe atención médica / PEMEX </option>
+          <option   value="5">Recibe atención médica / SEDENA o SEMAR </option>
+          <option   value="6">Recibe atención médica / Farmacias </option>
+          <option   value="7">Recibe atención médica / Privado </option>
+          <option   value="8">Recibe atención médica / Otro </option>
+
+  </select>
+
+              <select id="simple_sub" class="custom-select " *ngIf="simple_bar_opcion=='simple_medio'" [(ngModel)]="sub_cancel_op" (change)="simple_bar_change()" style="border: none">
+
+    <option   value="facebook">Facebook </option>
+    <option   value="tel">Teléfono </option>
+    <option   value="twitter">Twitter </option>
+
+  </select>
+            </div>
+
+
+
+          </div>
+
+
+
+
+
+
+
+          <div class="body">
+            <div align="center">
+              <p class="total_text">Total: <strong>{{total_cancel | number}} </strong>
+                <button type="button" class="expandir" data-toggle="modal" data-target="#modal_cancel" [disabled]="!chart_cancel"><img src="assets/img/expand.png" alt="Expandir"></button>
+                <button type="button" class="expandir" (click)="descarga_chart('#chart_simple','#lgn_simple','cancelacionMisalud')" [disabled]="!chart_cancel"><img src="assets/img/print.png" alt="Descargar"></button>
+
+              </p>
+
+
+            </div>
+            <div *ngIf="!chart_cancel" style="height:260px;padding:20%">
+
+              <div class="alert alert-success text-center" role="alert">
+                <strong>No hay datos disponibles</strong>
+              </div>
+
+            </div>
+
+            <div id="chart_simple" style="width:100%;padding:7% 0">
+
+            </div>
+            <div id="tool_simple" class="tooltipMapa"></div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="content-lgnd-impacto">
+                <div id="lgn_simple" class="lgnd-impacto">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="card">
+
+          <div class="header bg-green">
+            <h2>
+                               Alertas Canalizadas
+                           </h2>
+            <div id="help_alert" class="tool_help"><span></span>
+              <p>{{help_txt_alert}}</p>
+            </div>
+            <ul class="header-dropdown m-r-0">
+
+              <li>
+                <img src="assets/img/help.png" alt="" (mousemove)="help_enter(2)" (mouseout)="help_out(2)">
+
+
+
+
+              </li>
+            </ul>
+          </div>
+
+          <div class="header_three bg-white">
+            <div class="select">
+              <select id="tree_var" class="custom-select " [(ngModel)]="tree_opcion" (change)="tree_change('none')" style="border: none;">
+
+                             <option value="tree_tipo" selected>Tipo</option>
+                              <option value="tree_mom">Edad de la mamá</option>
+                              <option value="tree_bby">Edad del bebé</option>
+                              <option value="tree_aten">Atencion médica</option>
+                                <option value="tree_medio">Medio</option>
+                                  <option value="tree_razon">Razón de cancelación</option>
+
+                            </select>
+            </div>
+          </div>
+          <div class="header_three bg-white">
+            <div class="select">
+              <select id="tree_sub" class="custom-select " *ngIf="tree_opcion=='tree_tipo'" [(ngModel)]="sub_alert_op" (change)="tree_change()" style="border: none">
+
+            <option   value="baby">Mamás</option>
+            <option   value="pregnant">Embarazadas</option>
+            <option   value="personal">Personal Salud</option>
+
+            </select>
+              <select id="tree_sub" class="custom-select " *ngIf="tree_opcion=='tree_mom'" [(ngModel)]="sub_alert_op" (change)="tree_change()" style="border: none">
+
+            <option   value="0">0 a 19 años</option>
+            <option   value="1">19 a 35 años</option>
+            <option   value="2">Más de 35</option>
+
+            </select>
+              <select id="tree_sub" class="custom-select " *ngIf="tree_opcion=='tree_bby'" [(ngModel)]="sub_alert_op" (change)="tree_change()" style="border: none">
+
+            <option   value="0">Recién nacido </option>
+            <option   value="1">0 a 3 meses </option>
+            <option   value="2"> 4 a 6 meses</option>
+            <option   value="3">7 a 9 meses </option>
+            <option   value="4">10 a 12 meses </option>
+            <option   value="5"> 13 a 15 meses</option>
+            <option   value="6"> 16 a 18 meses</option>
+            <option   value="7">19 a 21 meses </option>
+            <option   value="8">2 años </option>
+
+
+            </select>
+              <select id="tree_sub" class="custom-select " *ngIf="tree_opcion=='tree_aten'" [(ngModel)]="sub_alert_op" (change)="tree_change()" style="border: none">
+              <option   value="0">Recibe atención médica / IMSS </option>
+              <option   value="1">Recibe atención médica / ISSSTE </option>
+              <option   value="2">Recibe atención médica / Seguro Popular </option>
+              <option   value="3">Recibe atención médica / Inst Nac. </option>
+              <option   value="4">Recibe atención médica / PEMEX </option>
+              <option   value="5">Recibe atención médica / SEDENA o SEMAR </option>
+              <option   value="6">Recibe atención médica / Farmacias </option>
+              <option   value="7">Recibe atención médica / Privado </option>
+              <option   value="8">Recibe atención médica / Otro </option>
+
+            </select>
+              <select id="tree_sub" class="custom-select " *ngIf="tree_opcion=='tree_medio'" [(ngModel)]="sub_alert_op" (change)="tree_change()" style="border: none">
+
+              <option   value="facebook">Facebook </option>
+              <option   value="tel">Teléfono </option>
+              <option   value="twitter">Twitter </option>
+
+            </select>
+
+            </div>
+          </div>
+
+
+
+          <div class="body">
+            <div align="center">
+              <p class="total_text">Total: <strong>{{total_alert | number}} </strong>
+                <button type="button" class="expandir" data-toggle="modal" data-target="#modal_alert" [disabled]="!chart_alert"><img src="assets/img/expand.png" alt="Expandir"></button>
+                <button type="button" class="expandir" (click)="descarga_chart('#chart_tree','#lgn_tree','alertasCanalizadas')" [disabled]="!chart_alert"><img src="assets/img/print.png" alt="Descargar"></button>
+
+              </p>
+
+
+            </div>
+
+            <div *ngIf="!chart_alert" style="height:260px;padding:20%">
+
+              <div class="alert alert-success text-center" role="alert">
+                <strong>No hay datos disponibles</strong>
+              </div>
+
+            </div>
+
+            <div id="chart_tree" style="width:100%;padding:7% 0"></div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="content-lgnd-impacto">
+                <div class="lgnd-impacto" id="lgn_tree">
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <button class="descarga_csv" (click)="generate_csv()">
+                  Descargar datos  <img src="assets/img/dta_csv.png">
+            </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<div class="modal fade" id="modal_cancel" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="largeModalLabel">Cancelación de misalud</h4>
+
+      </div>
+      <div class="modal-body">
+
+        <div id="chart_simple_expand">
+
+        </div>
+        <div id="tool_simple_expand" class="tooltipMapa"></div>
+
+        <div id="lgn_simple_expand"></div>
+
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-info " data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal_alert" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="largeModalLabel">Alertas Canalizadas</h4>
+      </div>
+      <div class="modal-body">
+
+        <div id="chart_tree_expand" style="width:100%;padding-top:5%"></div>
+
+
+
+        <div id="lgn_tree_expand" style=" border-top: 1px solid #efefef; padding: 2% 0 1% 1%">
+
+        </div>
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-info " data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modal_calidad" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="largeModalLabel">Calidad Clínica</h4>
+      </div>
+      <div class="modal-body">
+
+        <div id="chart_doble_expand" style="width:100%;padding-top:5%">
+
+
+
+        </div>
+        <div id="tool_doble_expand" class="tooltipMapa"></div>
+
+
+
+        <div id="lgn_doble_expand" style=" border-top: 1px solid #efefef; padding: 2% 0 1% 1%">
+
+        </div>
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-info " data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="f_impresion" id="c_bloqueo">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-5">
+        <div class="card">
+          <div class="header bg-white">
+            <h2><i class="spinner-2"></i> Generando documento</h2>
+          </div>
+          <div class="body" aling="center">
+            <div id="c_impresion" style=" width:400px">
+              <div id="i_title"></div>
+              <div id="i_img"></div>
+              <div id="i_legend"></div>
+              <div id="i_help"></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

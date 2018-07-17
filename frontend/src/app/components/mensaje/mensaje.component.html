@@ -1,0 +1,391 @@
+<section class="titulos">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h4>
+       MENSAJES</h4>
+        <p>Aquí podrás explorar características relacionadas a los mensajes enviados por el programa mi<strong>salud</strong>. Por ejemplo, la gráfica de tasa de respuesta te permite ver la popularidad del programa para distintos grupos, mientras que la
+          lista de Top 10 mensajes más populares muestra el texto de los mensajes con mayor tasa de respuesta. Finalmente, se podrá observar el total de mensajes enviados a las usuarias por categoría o por tema (por ejemplo, consejos, recordatorios, etc).
+        </p>
+
+
+      </div>
+    </div>
+
+  </div>
+
+
+</section>
+
+
+<section style="padding-top:1% ;padding-bottom: 1%;background-color: #efefef">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <h3 class="text_date">Inicio</h3>
+
+
+        <div class="select_date_to">
+          <select class="form-control " [(ngModel)]="i_mes" (change)="changeMonth(1)">
+
+                            <option *ngFor="let mes of meses_inicio;let i =index " value="{{i+1}}">{{mes}}</option>
+               </select>
+        </div>
+
+        <div class="select_date_to">
+          <select class="form-control " [(ngModel)]="i_year" (change)="changeMonth(1)">
+
+                 <option *ngFor="let year of years_inicio" value="{{year}}">{{year}}</option>
+            </select>
+
+        </div>
+
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <h3 class="text_date">Fin</h3>
+        <div class="select_date_to">
+          <select class="form-control " [(ngModel)]="f_mes" (change)="changeMonth(2)">
+
+                          <option *ngFor="let mes of meses_fin; let i =index " value="{{i+1}}">{{mes}}</option>
+
+             </select>
+        </div>
+        <div class="select_date_to">
+          <select class="form-control " [(ngModel)]="f_year" (change)="changeMonth(2)">
+
+               <option *ngFor="let year of years_fin" value="{{year}}">{{year}}</option>
+
+              </select>
+        </div>
+
+
+
+
+      </div>
+      <div *ngIf="invalido" class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="padding-top:4%;">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <strong>La fecha inicial </strong> no puede ser mayor a la fecha final.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <br>
+</section>
+
+<section style="background-color: #efefef;padding-bottom:3%">
+  <div class="container">
+    <div class="row">
+
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+        <div class="card">
+          <div class="header bg-green">
+            <h2>
+                         Tasa de respuesta
+                          </h2>
+            <div id="help_rate" class="tool_help"><span></span>
+              <p>{{help_rate}}</p>
+            </div>
+            <ul class="header-dropdown m-r-0">
+
+              <li>
+                <img src="assets/img/help.png" alt="" (mousemove)="help_enter(0)" (mouseout)="help_out(0)">
+
+
+
+              </li>
+            </ul>
+          </div>
+
+          <div class="header_three bg-white">
+            <div class="select">
+              <select class="custom-select " [(ngModel)]="barras" (change)="varChange()" style="border: none">
+
+  <option value="momAge">Edad mamá</option>
+   <option value="afil">Afiliación médica de la mamá </option>
+   <option value="medio">Medio </option>
+
+ </select>
+            </div>
+          </div>
+
+          <div class="body">
+
+
+
+            <div align="center">
+              <p class="total_text">Total: <strong>{{total_rate | number}} </strong>
+                <button type="button" class="expandir" data-toggle="modal" data-target="#modal_rate" [disabled]="!chart_rate"><img src="assets/img/expand.png" alt="Expandir"></button>
+                <button type="button" class="expandir" (click)="descarga_chart('#chart','#lgnd_bar','tasaRespuesta')" [disabled]="!chart_rate"><img src="assets/img/print.png" alt="Descargar"></button>
+
+              </p>
+
+
+            </div>
+            <div *ngIf="!chart_rate" style="height:220px;padding:20%">
+
+              <div class="alert alert-success text-center" role="alert">
+                <strong>No hay datos disponibles</strong>
+              </div>
+
+            </div>
+
+            <div id="chart" style="padding:2% 0">
+
+
+            </div>
+
+
+
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="content-lgnd-mensajes">
+                <div class="lgnd-mensajes" id="lgnd_bar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:8%">
+
+          <div class="header bg-white">
+            <h2>
+                            Total de mensajes enviados<br>
+ por categoría
+                          </h2>
+            <div id="help_topic" class="tool_help"><span></span>
+              <p>Total de mensajes enviados a las usuarias por tipo de mensaje.</p>
+            </div>
+            <ul class="header-dropdown m-r-0">
+
+              <li>
+                <img src="assets/img/help.png" alt="" (mousemove)="help_enter(1)" (mouseout)="help_out(1)">
+
+
+              </li>
+            </ul>
+          </div>
+
+
+          <div class="body">
+
+
+
+
+            <div align="center">
+              <p class="total_text">Total: <strong>{{total_msj | number}} </strong>
+                <button type="button" class="expandir" data-toggle="modal" data-target="#modal_msj" [disabled]="!chart_topic"><img src="assets/img/expand.png" alt="Expandir"></button>
+                <button type="button" class="expandir" (click)="descarga_chart('#chartTopic','#lgnTopic','msjCategoria')" [disabled]="!chart_topic"><img src="assets/img/print.png" alt="Descargar"></button>
+
+
+              </p>
+
+
+            </div>
+            <div *ngIf="!chart_topic" style="height:220px;padding:20%">
+
+              <div class="alert alert-success text-center" role="alert">
+                <strong>No hay datos disponibles</strong>
+              </div>
+
+            </div>
+
+            <div id="chartTopic" style="width:100%;padding-top:5%"></div>
+
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="content-lgnd-mensajes">
+                <div id="lgnTopic" class="lgnd-mensajes">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
+
+        <div class="card">
+          <div class="header bg-white" style=" border-bottom: 2px solid #00556b">
+            <h2>
+                          Top  10 mensajes más populares
+                            </h2>
+            <div id="help_msj" class="tool_help_g"><span></span>
+              <p>Mensajes enviados con mayor tasa de respuesta por parte de las usuarias.</p>
+            </div>
+            <ul class="header-dropdown m-r-0">
+
+              <li>
+                <img src="assets/img/help.png" alt="" (mousemove)="help_enter(2)" (mouseout)="help_out(2)">
+
+
+              </li>
+            </ul>
+          </div>
+
+          <div class="body">
+            <div align="center">
+              <p>
+
+                <button type="button" class="expandir" (click)="descarga_top_msj()" [disabled]="!chart_msj"><img src="assets/img/print.png" alt="Descargar"></button>
+
+              </p>
+
+
+            </div>
+
+            <div class="content-top-mensajes">
+              <div *ngIf="!chart_msj">
+
+                <div class="alert alert-success text-center" role="alert">
+                  <strong>No hay datos disponibles</strong>
+                </div>
+
+              </div>
+
+              <div *ngIf="chart_msj" class="top-mensajes" id="top_mensajes">
+                <p *ngFor="let msj of mesajes" class="txt_mensajes">
+                  "{{msj.msj}}"<br>
+                  <span style="color:#00556b;font-size: 1.4rem"> <i class="fas fa-tag" ></i> {{msj.type}}</span>
+                </p>
+              </div>
+            </div>
+
+
+
+
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <button class="descarga_csv" (click)="generate_csv()">
+                  Descargar datos  <img src="assets/img/dta_csv.png">
+            </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="modal fade" id="modal_rate" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="largeModalLabel">Tasa de respuesta</h4>
+      </div>
+      <div class="modal-body">
+
+        <div id="chart_expand">
+          <div id="tool_bar_expand" class="tooltipMapa"></div>
+        </div>
+
+        <div id="lgnd_bar_expand"></div>
+
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-info " data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal_msj" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="largeModalLabel">Total de mensajes enviados
+por categoría</h4>
+      </div>
+      <div class="modal-body">
+
+        <div id="chartTopic_expand" style="width:100%;padding-top:5%"></div>
+
+
+
+        <div id="lgnTopic_expand" style=" border-top: 1px solid #efefef; padding: 2% 0 1% 1%">
+
+        </div>
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-info " data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="f_impresion" id="c_bloqueo">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-5">
+        <div class="card">
+          <div class="header bg-white">
+            <h2><i class="spinner-2"></i> Generando documento</h2>
+          </div>
+          <div class="body" aling="center">
+            <div id="c_impresion" style=" width:400px">
+              <div id="i_title"></div>
+              <div id="i_img"></div>
+              <div id="i_legend"></div>
+              <div id="i_help"></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="f_impresion" id="c_bloqueo_l">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header bg-white">
+            <h2><i class="spinner-2"></i> Generando documento</h2>
+          </div>
+          <div class="body" style="text-align: center !important;">
+            <div class="center-pdf-msj">
+              <div id="c_impresion_l" style="width:700px; ">
+                <div id="i_title_l"></div>
+                <div id="i_img_l"></div>
+                <div id="i_legend_l"></div>
+                <div id="i_help_l"></div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

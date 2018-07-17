@@ -1,0 +1,12 @@
+.env
+*.pyc
+*.dat
+*.bak
+*.dir
+__pycache__
+*.pid
+preprocess/commands.sh
+preprocess/definitions.json
+data/
+unicef_backend/actions.json
+unicef_backend/runs.csv

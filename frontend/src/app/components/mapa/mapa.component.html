@@ -1,0 +1,211 @@
+<section class="titulos">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h4>
+       MAPA</h4>
+        <p>
+
+          Utiliza el siguiente mapa para visualizar el avance del programa mi<strong>salud</strong> en el país. Puedes usar el recuadro del lado izquierdo del mapa para elegir la información que quieres ver, como total de usuarias en el programa. Además,
+          en algunos casos, puedes filtrar por características como edad, servicios de salud, medio de recepción de contenido, entre otras. Elige el nombre de un estado, y si quieres de un municipio, y da clic en <strong>Ver ficha completa</strong> para
+          más información.
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+
+</section>
+
+
+
+
+<section style="background-color: #efefef">
+  <div class="container" style="padding-top:3%">
+
+    <div class="row">
+
+      <div class="col-md-4 ">
+
+
+
+
+        <div class="card">
+          <div class="header bg-green">
+
+            <h2>Mapa de calor</h2>
+
+          </div>
+          <div class="header_three bg-white">
+            <div class="select">
+              <select id="map_var" [(ngModel)]="variable" (change)="changeVar()" class="form-control" style="border:none">
+
+        <option value='usr' >Total de usuarias</option>
+        <option value='bby'>Total de bebés</option>
+
+      </select>
+            </div>
+          </div>
+          <div *ngIf="variable=='usr'" class="header_three bg-white">
+            <div class="select">
+              <select id="map_sub" class="form-control " (change)="varChange()" [(ngModel)]="opcionsub" style="border:none;">
+
+             <option  *ngFor="let op of subvariable" [ngValue]="op.value">{{op.texto}}</option>
+
+           </select>
+            </div>
+          </div>
+          <div class="header_two bg-white">
+            <div class="row" align="center">
+              <div class="col-md-4 text_map">
+                <p>Inicio</p>
+              </div>
+              <div class="col-md-4">
+                <div class="selectDate">
+
+                  <select class="form-control " [(ngModel)]="i_mes" (change)="changeMonth(1)" style="border: none ; border-radius: 0px">
+                    <option *ngFor="let mes of meses_inicio;let i =index " value="{{i+1}}">{{mes}}</option>
+                        </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="selectDate">
+                  <select class="form-control " [(ngModel)]="i_year" (change)="changeMonth(1)" style="border: none;border-radius: 0px">
+
+                                     <option *ngFor="let year of years_inicio" value="{{year}}">{{year}}</option>
+                                </select>
+                </div>
+
+              </div>
+
+
+
+            </div>
+
+          </div>
+          <div class="header_two bg-white">
+            <div class="row" align="center">
+
+              <div class="col-md-4 text_map">
+                <p>Fin</p>
+              </div>
+              <div class="col-md-4">
+                <div class="selectDate">
+                  <select class="form-control " [(ngModel)]="f_mes" (change)="changeMonth(2)" style="border: none; border-radius: 0px">
+
+                                          <option *ngFor="let mes of meses_fin; let i =index " value="{{i+1}}">{{mes}}</option>
+
+                              </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+
+                <div class="selectDate">
+                  <select class="form-control " [(ngModel)]="f_year" (change)="changeMonth(2)" style="border: none;border-radius: 0px">
+
+                                       <option *ngFor="let year of years_fin" value="{{year}}">{{year}}</option>
+
+                                      </select>
+                </div>
+              </div>
+
+
+
+            </div>
+
+          </div>
+
+
+
+
+        </div>
+
+        <div *ngIf="invalido" class="alert alert-danger alert-dismissible " role="alert">
+          <strong>La fecha inicial </strong> no puede ser mayor a la fecha final.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+
+
+        <div class="card">
+
+          <div class="header_three bg-white">
+            <div class="select">
+              <select id="state_var" class="form-control" [(ngModel)]="estado" (change)="valorEstatal()" class="form-control " style=" font-weight: 600;height: auto:color:#00556b">
+            <option  value="none">Estado</option>
+            <option *ngFor="let estado of estados"[ngValue]="estado.cve_ent">{{estado.nom_ent}} </option>
+            </select>
+
+
+            </div>
+
+          </div>
+
+          <div class="body" *ngIf="estado !='none'" align="center">
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="header_two bg-white">
+                  <div class="select">
+                    <select id="mun_var" [(ngModel)]="municipio" (change)="change_mun()" class="form-control " style="border: none">
+      <option value="none">Municipio</option>
+    <option *ngFor="let mun of municipios"[ngValue]="mun.cve_comb">{{mun.nom_mun}} </option>
+
+    </select>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="border-bottom: 1px solid #efefef">
+                <p style="font-size: 1.5rem; font-weight: 700" align="center">{{varText}}</p>
+              </div>
+
+              <hr>
+              <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" align="left" style="padding-left:10% ">
+                <p class="map_info">Valor Nacional</p>
+                <p [ngClass]="{map_selected_info: municipio == 'none',map_info: municipio != 'none'  }">Valor Estatal</p>
+                <p *ngIf="municipio !='none'" class="map_selected_info">Valor Municipal</p>
+              </div>
+              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" style="padding-right:10% ">
+                <p class="map_info_value">{{v_nacioal | number}}</p>
+                <p [ngClass]="{map_selected_info_value: municipio == 'none',map_info_value: municipio != 'none'  }">{{v_estatal | number}}</p>
+                <p *ngIf="municipio !='none'" class="map_selected_info_value">{{v_municipal | number}}</p>
+              </div>
+
+            </div>
+          </div>
+          <button class="ver_ficha" (click)="ver_ficha()" style="color: #fff">
+                    Ver ficha completa
+              </button>
+
+        </div>
+        <div style="padding-bottom:3%">
+          <button class="descarga_csv" (click)="generate_csv()">
+                  Descargar datos  <img src="assets/img/dta_csv.png">
+            </button>
+        </div>
+
+      </div>
+
+
+
+      <div class="col-sm-12 col-md-8 col-lg-8" style="padding-top: 0%;">
+        <div id="chart" style="margin-top: 0;padding-top: 0">
+
+          <div id="parent_gradient">
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+</section>

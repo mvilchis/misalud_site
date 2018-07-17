@@ -1,0 +1,115 @@
+<header>
+  <div class="jumbotron text-center">
+    <div class="container">
+      <div class="row">
+        <div class="media-center" align="center">
+          <div class="media-middle">
+            <img src="assets/img/logo_misalud_300.png" title="" media-simple="true" class="img-fluid">
+          </div>
+        </div>
+
+
+        <div *ngIf="_headerService.encabezado==1" style="margin-top: 4%;padding-bottom:0px;margin-bottom:0px">
+
+          <div class="col-md-4" style="padding-bottom:0px;margin-bottom:0px">
+            <h4 class="title_header">USUARIOS TOTALES</h4>
+            <p class="number_header">{{usuarios | fmiles}}</p>
+          </div>
+          <div class="col-md-4" style="padding-bottom:0px;margin-bottom:0px">
+            <h4 class="title_header">MENSAJES</h4>
+            <p class="number_header">{{mensajes | fmiles}}</p>
+          </div>
+          <div class="col-md-4" style="padding-bottom:0px;margin-bottom:0px">
+            <h4 class="title_header">TASA DE RESPUESTA</h4>
+            <p class="number_header">{{tasa}}%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!movile" class="nav_menu">
+    <ul class="nav2 justify-content-center">
+      <li class="nav-item" routerLinkActive="active">
+        <div id="loguno"></div>
+        <a class="nav-link " routerLink="/mapa" (mousemove)="_headerService.enter_change('map')" (mouseout)="_headerService.out_change('map')">
+          <div [ngSwitch]="_headerService.mapa_ico">
+            <div *ngSwitchCase="'none'"><img src="assets/img/mapa_ico.svg" width="40px" height="40px"> Mapa</div>
+            <div *ngSwitchCase="'hover'"><img src="assets/img/mapa_icoA.svg" width="40px" height="40px"> Mapa</div>
+            <div *ngSwitchCase="'active'"><img src="assets/img/mapa_icoA.svg" width="40px" height="40px"> Mapa</div>
+
+          </div>
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/usuarios" (mousemove)="_headerService.enter_change('user')" (mouseout)="_headerService.out_change('user')">
+          <div [ngSwitch]="_headerService.usr_ico">
+            <div *ngSwitchCase="'none'"> <img src="assets/img/usuarios_ico.svg" width="40px" height="40px"> Usuarios</div>
+            <div *ngSwitchCase="'hover'"> <img src="assets/img/usuarios_icoA.svg" width="40px" height="40px"> Usuarios</div>
+            <div *ngSwitchCase="'active'"> <img src="assets/img/usuarios_icoA.svg" width="40px" height="40px"> Usuarios</div>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/mensaje" (mousemove)="_headerService.enter_change('msj')" (mouseout)="_headerService.out_change('msj')">
+
+          <div [ngSwitch]="_headerService.msj_ico">
+            <div *ngSwitchCase="'none'"> <img src="assets/img/mensajes_ico.svg" width="40px" height="40px"> Mensajes</div>
+            <div *ngSwitchCase="'hover'"> <img src="assets/img/mensajes_icoA.svg" width="40px" height="40px"> Mensajes</div>
+            <div *ngSwitchCase="'active'"> <img src="assets/img/mensajes_icoA.svg" width="40px" height="40px"> Mensajes</div>
+          </div>
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/impacto" (mousemove)="_headerService.enter_change('impact')" (mouseout)="_headerService.out_change('impact')">
+
+          <div [ngSwitch]="_headerService.impact_ico">
+            <div *ngSwitchCase="'none'"> <img src="assets/img/impacto_ico.svg" width="40px" height="40px"> Impacto</div>
+            <div *ngSwitchCase="'hover'"> <img src="assets/img/impacto_icoA.svg" width="40px" height="40px"> Impacto</div>
+            <div *ngSwitchCase="'active'"> <img src="assets/img/impacto_icoA.svg" width="40px" height="40px"> Impacto</div>
+          </div>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+
+  <div *ngIf="movile" class="nav_menu">
+    <ul class="nav2 justify-content-center">
+      <li class="nav-item" routerLinkActive="active">
+        <div id="loguno"></div>
+        <a class="nav-link " routerLink="/mapa">
+
+          <img src="assets/img/mapa_ico.svg" width="40px" height="40px"> Mapa
+
+
+
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/usuarios">
+
+         <img src="assets/img/usuarios_ico.svg" width="40px" height="40px"> Usuarios
+
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/mensaje">
+
+
+           <img src="assets/img/mensajes_ico.svg" width="40px" height="40px"> Mensajes
+
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/impacto">
+
+
+           <img src="assets/img/impacto_ico.svg" width="40px" height="40px"> Impacto
+
+        </a>
+      </li>
+
+    </ul>
+  </div>
+
+</header>

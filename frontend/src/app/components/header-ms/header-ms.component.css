@@ -1,0 +1,1408 @@
+/**********************************
+    General Styles
+**********************************/
+
+/**********************************
+    Navbar Styles
+**********************************/
+
+.navbar-default {
+  margin-bottom: 0;
+  background-color: transparent;
+  border-bottom: 1px solid #000;
+  border-radius: 0;
+}
+
+.navbar-default .navbar-nav>li>a {
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 300;
+  color: #000;
+}
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a {
+  background-color: transparent;
+  color: #0c9;
+}
+
+.navbar-default .navbar-brand>img {
+  height: auto;
+}
+
+/**********************************
+    Font Styles
+**********************************/
+
+h1 {
+  margin-bottom: 30px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  font-family: "Roboto";
+  font-weight: 600;
+  font-size: 28px;
+  color: #000;
+  border-bottom: 1px solid #979797;
+  position: relative;
+}
+
+h1:after {
+  display: block;
+  content: ' ';
+  width: 30px;
+  height: 3px;
+  background-color: #0c9;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+}
+
+#site-banner p {
+  margin-bottom: 30px;
+  font-family: "Roboto";
+  font-size: 30px;
+  font-weight: 300;
+  color: #fff;
+}
+
+.site-widget h2 {
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5em;
+}
+
+#sms-section h3 {
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5em;
+  color: #0c9;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+strong {
+  font-weight: 600;
+}
+
+.highlight {
+  color: #0c9;
+}
+
+.section-title {
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  font-family: "Roboto";
+  font-weight: 300;
+  color: #000;
+  border-bottom: 1px solid #979797;
+}
+
+/**********************************
+    Forms Styles
+**********************************/
+
+.register-form {
+  margin: 50px 0;
+}
+
+.register-form label {
+  display: block;
+  text-align: center;
+}
+
+.register-form .select, .register-form input {
+  max-width: 302px;
+  margin: 0 auto;
+}
+
+.register-form input[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 6px 20px;
+  background-color: #0c9;
+  border: none;
+}
+
+.register-form #contact-name, .register-form #phone-number {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.register-form #contact-name {
+  margin-top: 34px;
+}
+
+.register-form .form-group.fixed, .register-form .submit-fixed {
+  height: 80px;
+  position: relative;
+}
+
+.register-form .form-group.fixed .form-control, .register-form .submit-fixed input[type="submit"] {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+/**********************************
+    Lists Styles
+**********************************/
+
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+ul>li {
+  color: #0c9;
+}
+
+ul.dashed>li {
+  margin-bottom: 10px;
+}
+
+ul.dashed>li:before {
+  content: '\2013';
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+ul.sidebar {
+  padding: 0;
+  list-style: none;
+}
+
+ul.sidebar>li {
+  padding-left: 20px;
+  line-height: 40px;
+  border-bottom: 1px solid #979797;
+  color: #979797;
+  cursor: pointer;
+}
+
+ul.sidebar>li:hover {
+  background-color: #0c9;
+  color: #fff;
+}
+
+.register-button {
+  width: 170px;
+  height: 40px;
+  padding-left: 40px;
+  background-color: #0c9;
+  border-right: none;
+  text-align: left;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  position: fixed;
+  right: 0;
+  bottom: 100px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), inset 0 0 2px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.register-static {
+  position: absolute;
+  bottom: inherit;
+}
+
+#tryit-section .register-static {
+  position: absolute;
+  bottom: 100px;
+  top: inherit !important;
+}
+
+.register-button>a {
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 40px;
+  color: #fff;
+}
+
+.register-button>a:after {
+  content: ' ';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  border: 1.5px solid #fff;
+  border-radius: 10px;
+  position: relative;
+  top: 4px;
+}
+
+/**********************************
+    SMS Sections Styles
+**********************************/
+
+#sms-section {
+  margin: 30px 0;
+  text-align: center;
+}
+
+#sms-section img {
+  margin-bottom: 10px;
+}
+
+/**********************************
+    Widgets Styles
+**********************************/
+
+.site-widget {
+  margin-bottom: 30px;
+  border-radius: 13px;
+  text-align: center;
+  padding: 1px;
+  box-shadow: 0 0 6px #aaa;
+}
+
+.site-widget h2, .site-widget p {
+  padding: 0 20px;
+}
+
+.site-widget img {
+  width: 100px;
+}
+
+.site-widget .read-more {
+  display: block;
+  width: 170px;
+  margin: 30px auto 15px;
+  padding: 6px;
+  background-color: #0c9;
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 30px;
+}
+
+#tryit-section label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#tryit-section .input-group {
+  max-width: 100%;
+  margin-top: 10px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 0px;
+}
+
+#tryit-section .input-group .form-control {
+  font-family: "Roboto";
+  font-size: 16px;
+  line-height: 1.5em;
+  font-weight: 500;
+  color: #000;
+  text-align: center;
+  border-radius: 0;
+}
+
+#tryit-section .input-group .input-group-addon {
+  background-color: #0c9;
+}
+
+#tryit-section .input-group .glyphicon {
+  position: relative;
+  left: 1px;
+  top: -1px;
+  color: #fff;
+}
+
+#tryit-tool-container {
+  display: none;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #979797;
+}
+
+#tryit-calendar {
+  margin: 30px auto 0;
+  overflow: hidden;
+}
+
+#tryit-calendar.calendar .month-container {
+  margin-bottom: 25px;
+}
+
+/* antes -> height: 280px */
+
+#tryit-calendar.calendar .year-title {
+  color: #0c9;
+}
+
+#tryit-calendar.calendar .year-neighbor, #tryit-calendar.calendar .year-neighbor2 {
+  color: #aaa;
+}
+
+#tryit-calendar.calendar table td.day:not(.old):not(.new) {
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.color-codes {
+  margin-left: 10px;
+}
+
+.color-code {
+  display: inline-block;
+  height: 20px;
+  margin-right: 10px;
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #000;
+  overflow: hidden;
+}
+
+.color-code>span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  border-radius: 2px;
+}
+
+.color-code>em {
+  position: relative;
+  top: -5px;
+}
+
+#messages-container {
+  position: absolute;
+  background: #fff;
+  top: 12%;
+  bottom: 12%;
+}
+
+#messages-container .messages {
+  width: 100%;
+  padding: 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 30px;
+  top: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#messages-container .message {
+  width: 80%;
+  margin-bottom: 10px;
+  padding: 9px;
+  position: relative;
+  background: #e5e4e9;
+  border-radius: .8em;
+  font-size: 12px;
+  line-height: 1.5em;
+  color: #000;
+  float: left;
+}
+
+#messages-container .response-message {
+  float: right;
+  color: #fff;
+  background-color: #2095fe;
+}
+
+#messages-container .message>p {
+  margin-bottom: 0;
+}
+
+#messages-container .message:after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 100%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: #e5e4e9;
+  border-left: 0;
+  border-bottom: 0;
+  margin-top: -14px;
+  margin-left: -7px;
+}
+
+#messages-container .response-message:after {
+  left: auto;
+  right: 0;
+  margin-left: 0;
+  margin-right: -7px;
+  border: 10px solid transparent;
+  border-left-color: #2095fe;
+  border-right: 0;
+  border-bottom: 0;
+  clear: both;
+}
+
+#messages-container form {
+  display: none;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+#messages-container input[type="text"] {
+  width: 72%;
+  padding: 3px 5px;
+  font-family: 'Roboto';
+  float: left;
+  font-size: 12px;
+  line-height: 1;
+}
+
+#messages-container input[type="submit"] {
+  width: 28%;
+  padding: 3px 5px;
+  float: right;
+  font-family: 'Roboto';
+  font-size: 10px;
+  line-height: 1;
+  text-align: center;
+  position: relative;
+  top: 3px;
+}
+
+#datepickers_pregnant, #datepickers_baby {
+  display: none;
+  width: 100%;
+  opacity: 0;
+}
+
+.control-calendar {
+  width: calc(49% - 3px);
+  margin-bottom: 20px;
+  padding: 10px 0;
+  background-color: #fff;
+  border: 1px solid #000;
+  float: left;
+  cursor: pointer;
+}
+
+.control-calendar.active {
+  background-color: #0c9;
+}
+
+.control-calendar>p {
+  margin-bottom: 0;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.control-calendar.active>p {
+  font-weight: 600;
+  color: #fff;
+}
+
+.select-hidden {
+  display: none;
+  visibility: hidden;
+  padding-right: 10px;
+}
+
+.select {
+  cursor: pointer;
+  display: block;
+  position: relative;
+  font-size: 16px;
+  color: $fff;
+  width: 100%;
+  height: 40px;
+}
+
+.select-styled {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #979797;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  padding: 8px 50px 8px 10px;
+  line-height: 1.4;
+  text-align: center;
+  font-style: italic;
+}
+
+.select-styled:after {
+  content: "\e114";
+  width: 40px;
+  height: 40px;
+  background-color: #0c9;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  font-family: 'Glyphicons Halflings';
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  font-style: normal;
+}
+
+.select-options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-shadow: 1px 1px 6px #ccc;
+}
+
+.select-options li {
+  margin: 0;
+  padding: 12px 0;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.select-options li.disabled {
+  background-color: #f1f1f1;
+  cursor: default;
+}
+
+.select-options li:hover {
+  background-color: #f4f4f4;
+}
+
+.select-options li[rel="hide"] {
+  display: none;
+}
+
+@media (min-width: 761px) {
+  #tryit-section label span {
+    margin-right: 50px;
+  }
+  .navbar-default .misalud-navbar {
+    padding: 0 55px;
+  }
+  .navbar-default .misalud-navbar .navbar-brand {
+    margin-left: -30px !important;
+  }
+  ul.half-width {
+    overflow: hidden;
+  }
+  ul.half-width>li {
+    width: 50%;
+    margin-bottom: 10px;
+    float: left;
+  }
+}
+
+/* Estilos de mensajes informativos
+** -------------------------------*/
+
+.messages-inf {
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+  top: 12%;
+  bottom: 12%;
+}
+
+.messages-inf .messages {
+  width: 100%;
+  padding: 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 30px;
+  top: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.messages-inf .message {
+  width: 80%;
+  margin-bottom: 10px;
+  padding: 9px;
+  position: relative;
+  background: #5ddcb8;
+  border-radius: .8em;
+  line-height: 1.5em;
+  color: #fff;
+  float: left;
+}
+
+.messages-inf .response-message {
+  float: right;
+  color: #fff;
+  background-color: #727eb7;
+}
+
+.messages-inf .message>p {
+  margin-bottom: 0;
+}
+
+.messages-inf .message:after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 100%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: #5ddcb8;
+  border-left: 0;
+  border-bottom: 0;
+  margin-top: -20px;
+  margin-left: -7px;
+}
+
+.messages-inf .response-message:after {
+  left: auto;
+  right: 0;
+  margin-left: 0;
+  margin-right: -7px;
+  border: 10px solid transparent;
+  border-left-color: #727eb7;
+  border-right: 0;
+  border-bottom: 0;
+  clear: both;
+}
+
+@media screen and (max-width: 991px) {
+  .messages-inf {
+    padding: 0 10px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .messages-inf {
+    padding: 0 100px 0 10px;
+  }
+}
+
+/* Nuevos estilos
+** -------------------------------*/
+
+a {
+  color: #0c9;
+}
+
+a:hover, a:focus {
+  color: #039772;
+}
+
+.site-widget .read-more.disabled {
+  background-color: #bbb;
+  cursor: default;
+  pointer-events: none;
+}
+
+#chat-input::placeholder, #chat-input::-moz-placeholder, #chat-input::-webkit-input-placeholder {
+  color: #a3a3a3;
+  font-size: 9px;
+}
+
+.sub-navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.sub-navbar button.navbar-toggle>.icon-bar {
+  background-color: #393c3e;
+}
+
+.sub-navbar .navbar-collapse {
+  background-color: #fff;
+}
+
+.sub-navbar .navbar-nav>.active>a {
+  background-color: #fff;
+  color: #0c9;
+}
+
+.sub-navbar .navbar-nav>.active>a:hover, .sub-navbar .navbar-nav>.active>a:focus {
+  background-color: #fff;
+  color: #0c9;
+  cursor: default;
+}
+
+.sub-navbar .navbar-nav>li>a {
+  color: #000;
+}
+
+.sub-navbar .navbar-nav>li>a:hover, .sub-navbar .navbar-nav>li>a:focus {
+  background-color: #f8f8f8;
+  color: #000;
+}
+
+.calendar-form .input-group-addon>span {
+  transform: rotate(90deg);
+}
+
+.calendar table.month tr td .day-content {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+#mobile-messages {
+  float: left;
+}
+
+#mobile-messages .message {
+  box-shadow: 0 1px 7px #3c3a3a;
+  margin-top: 15px;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+#mobile-messages .message p {
+  margin: 0;
+  padding: 10px;
+}
+
+#mobile-messages .message p:first-child {
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 4px 4px 0 0;
+}
+
+#mobile-messages #chat-form {
+  display: none;
+}
+
+.calendar-header.panel {
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.calendar table th.prev {
+  text-align: left;
+}
+
+.calendar table th.next {
+  text-align: right;
+}
+
+.calendar table th.prev span, .calendar table th.next span {
+  font-family: "Roboto";
+  line-height: 22px !important;
+  top: 0;
+}
+
+.calendar table th .glyphicon-triangle-right::after, .calendar table th .glyphicon-triangle-left::before {
+  color: #0c9;
+  font-family: 'Glyphicons Halflings';
+  font-weight: 400;
+  top: 1px;
+}
+
+.calendar table th.next .glyphicon-triangle-right::before {
+  content: '';
+}
+
+.calendar table th.next .glyphicon-triangle-right::after {
+  content: "\e250";
+}
+
+.calendar .calendar-header table th:hover {
+  background-color: transparent;
+}
+
+/* Semi header calendar */
+
+.calendar-semi-header>table {
+  width: 100%;
+}
+
+.calendar-semi-header>table>th {
+  font-size: 15px;
+}
+
+#message-panel .panel .panel-heading {
+  color: #fff;
+  text-align: center;
+}
+
+#message-panel .mobile-control {
+  cursor: pointer;
+  color: #0c9;
+}
+
+#message-panel [class*="pull-"] {
+  position: absolute;
+  top: 2px;
+  margin-bottom: 10px;
+}
+
+#message-panel [class*="pull-"]>span {
+  padding: 15px 15px;
+  margin-top: -4px;
+  color: #fff;
+}
+
+#message-panel .pull-right {
+  right: 15px;
+}
+
+/* Datepicker styles
+ * ---------------------------*/
+
+.bootstrap-datetimepicker-widget.dropdown-menu {
+  padding: 0;
+}
+
+.bootstrap-datetimepicker-widget .table-condensed thead {
+  color: #fff;
+  background-color: #0c9;
+}
+
+.bootstrap-datetimepicker-widget .table-condensed thead>tr>th {
+  border-radius: 0;
+}
+
+.bootstrap-datetimepicker-widget .table-condensed .picker-switch:hover, .bootstrap-datetimepicker-widget .table-condensed .prev:hover, .bootstrap-datetimepicker-widget .table-condensed .next:hover {
+  background-color: #22d8aa;
+}
+
+.bootstrap-datetimepicker-widget .table-condensed .picker-switch, .bootstrap-datetimepicker-widget .table-condensed .dow, .bootstrap-datetimepicker-widget .table-condensed .month {
+  text-transform: capitalize;
+  font-weight: 300;
+  border-radius: 0;
+}
+
+.bootstrap-datetimepicker-widget .table-condensed .day, .bootstrap-datetimepicker-widget .table-condensed .month {
+  color: #000;
+  border-radius: 0;
+  padding: 10px 5px;
+  border-top: 1px solid #eee;
+  border-right: 1px solid #eee;
+}
+
+.bootstrap-datetimepicker-widget .table-condensed .month {
+  padding: 0;
+  border: 0;
+}
+
+.bootstrap-datetimepicker-widget .table-condensed .day.active, .bootstrap-datetimepicker-widget .table-condensed .month.active {
+  background-color: #0c9;
+  color: #fff;
+}
+
+.bootstrap-datetimepicker-widget .table-condensed .day.today::before {
+  border-bottom-color: #0c9;
+}
+
+.bootstrap-datetimepicker-widget .table-condensed .day.old, .bootstrap-datetimepicker-widget .table-condensed .day.new, .bootstrap-datetimepicker-widget .table-condensed .day.disabled {
+  color: #d3d5d6;
+}
+
+.logo-brand img {
+  width: 115px;
+  height: auto;
+}
+
+.logo-white {
+  width: 383px;
+}
+
+@media (max-width: 767px) {
+  .logo-brand {
+    padding: 6px 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .logo-brand {
+    padding: 6px 0;
+  }
+}
+
+.separator-o {
+  text-align: center;
+}
+
+.modal {
+  margin: 0 15px;
+}
+
+.modal-body {
+  padding: 19px;
+}
+
+iframe {
+  width: 100%;
+}
+
+.info-title {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.btn {
+  text-decoration: none;
+}
+
+.btn-prima, .btn-cancel {
+  padding: 6px 20px;
+  color: #fff;
+  background-color: #0c9;
+  border: none;
+  box-shadow: 1px 1px 6px #989494;
+}
+
+.btn-cancel {
+  color: #a2a1a1;
+  margin-right: 2%;
+  botder: 1px solid #000;
+  background-color: #fff;
+}
+
+.btn-cancel:hover {
+  color: #545454;
+}
+
+.btn-misalud {
+  height: 40px;
+  color: #fff;
+  border: 1px solid #fff;
+  margin-bottom: 8px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 0;
+  padding: 6px 20px;
+  background-color: #0c9;
+}
+
+.btn-misalud:hover, .btn-misalud:focus {
+  color: #fff;
+}
+
+.btn-return {
+  display: block;
+  width: 50%;
+  margin: auto;
+}
+
+#materials .btn-misalud {
+  vertical-align: bottom;
+}
+
+#messageModal .btn-prima {
+  width: 50%;
+}
+
+@media screen and (max-width: 355px) {
+  #confirmRegModal .btn-prima, #confirmRegModal .btn-cancel, #registerMessage .btn-prima, #registerMessage .btn-cancel {
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+}
+
+@media screen and (min-width: 355px) {
+  #confirmRegModal .btn-prima, #confirmRegModal .btn-cancel, #registerMessage .btn-prima, #registerMessage .btn-cancel {
+    width: 48%;
+  }
+}
+
+#messageModal .modal-body, #confirmRegModal .modal-body {
+  text-align: center;
+}
+
+#confirmRegModal .modal-body p span {
+  display: block;
+}
+
+.margin-footer {
+  margin-bottom: 70px;
+}
+
+/* Selector de campos de fecha */
+
+#datepickers_pregnant>.col-md-12, #datepickers_pregnant>.col-md-4, #datepickers_baby>.col-md-12, #datepickers_baby>.col-md-4 {
+  padding: 0;
+}
+
+/* Recaptcha */
+
+#recaptcha {
+  display: inherit;
+  overflow: hidden;
+  max-width: 302px;
+  margin: 0 auto 10px auto;
+}
+
+/* Loading... */
+
+#loader-container {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1050;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  /* Light grey */
+  border-top: 16px solid #545454;
+  /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin .8s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -60px;
+  margin-left: -60px;
+}
+
+#material-section {
+  overflow: hidden;
+}
+
+#material-section .logo {
+  margin-bottom: 40px;
+}
+
+#material-section .panel {
+  box-shadow: none;
+}
+
+#material-section .panel-default {
+  border-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+#material-section .panel-default:last-child {
+  border: 0;
+}
+
+#material-section .panel-default>.panel-heading {
+  background-color: #fff;
+}
+
+#material-section .ficha-collapse .panel-heading {
+  padding: 0;
+}
+
+#material-section .ficha-collapse .panel-body {
+  padding: 30px 0;
+}
+
+#material-section .ficha-collapse .panel-title a.collapsed {
+  font-weight: 300;
+}
+
+#material-section .ficha-collapse .panel-title a {
+  display: block;
+  padding: 20px 55px 20px 0;
+  font-weight: 400;
+  font-size: 1em;
+}
+
+#material-section .ficha-collapse .panel-title a:hover {
+  color: #a49c9c;
+  outline: 0;
+}
+
+#material-section .ficha-collapse .panel-title a:focus {
+  color: #000;
+  outline: 0;
+}
+
+#material-section .panel-group .panel+.panel {
+  margin: 0;
+}
+
+#material-section .collpase-button {
+  border: 1px solid #fff;
+}
+
+#material-section .collpase-button.collapsed::before {
+  width: 26px;
+  left: 2px;
+}
+
+#material-section .collpase-button.collapsed::after {
+  height: 26px;
+  top: 2px;
+}
+
+#material-section .collpase-button::before {
+  width: 26px;
+  left: 2px;
+}
+
+#material-section .panel-body img {
+  width: 50%;
+  margin: 0 30px 10px 0;
+}
+
+.blue-link {
+  color: #130fed;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.blue-link:hover, .blue-link:focus {
+  color: #252592;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 767px) {
+  #simulator-phone {
+    display: none;
+    width: 100%;
+    height: 81%;
+    position: fixed !important;
+    top: 100px !important;
+    z-index: 9;
+  }
+  #messages-container {
+    right: 9%;
+    left: 10%;
+  }
+  #simulator-phone>#phone-holder {
+    width: 100%;
+    height: 100%;
+  }
+  .close.rounded {
+    display: block;
+    position: absolute;
+    top: 3px;
+    right: 23px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    opacity: .9;
+    background-color: #0c9;
+  }
+  #material-section {
+    padding: 40px 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .close.rounded {
+    display: none;
+  }
+  #messages-container {
+    right: 12%;
+    left: 12%;
+  }
+  #material-section {
+    padding: 0 0 40px 0;
+  }
+  .hide-on-desktop {
+    display: none !important;
+  }
+}
+
+@media (max-width: 374px) {
+  h1 {
+    font-size: 21px;
+  }
+  .control-calendar {
+    width: 100%;
+  }
+  .control-calendar:first-child {
+    margin: 0;
+    border-bottom: 0;
+    border-right: 1px solid #000;
+  }
+  #tryit-section .input-group .form-control {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 375px) {
+  .control-calendar:first-child {
+    border-right: 0;
+  }
+}
+
+@media (max-width: 570px) {
+  /* Se ocultan las opciones que contienen: próximamente */
+  #info>option[value="Cronicas"], .select-options>li[rel="Cronicas"], #media>option[value="App"], .select-options>li[rel="App"] {
+    /* #media > option[value="Twitter DM"],
+    .select-options > li[rel="Twitter DM"] { */
+    display: none;
+  }
+  .month-title {
+    display: none;
+  }
+  #tryit-calendar>.calendar-header {
+    display: none;
+  }
+  .calendar .month-container {
+    width: 100%;
+    height: auto;
+  }
+  /* Muestra mensajes sin mobil */
+  #mobile-messages {
+    display: block;
+  }
+  #site-register {
+    background: #fff;
+    padding: 0;
+  }
+  @media (max-width: 991px) {
+    #site-register #register-form .form-group.fixed {
+      height: auto;
+    }
+  }
+  @media (min-width: 992px) {
+    #site-register #register-form .form-group.fixed {
+      height: 133px;
+    }
+  }
+  .register-form .form-group.fixed {
+    height: auto;
+  }
+  .register-form {
+    margin: 30px 0;
+  }
+  .hide-on-mobile {
+    display: none !important;
+  }
+  .register-form #contact-name {
+    margin-top: 0;
+  }
+  .margin-on-mobile {
+    margin-bottom: 30px;
+  }
+  #register-form>.row>.col-md-4 {
+    margin-bottom: 20px;
+  }
+  .highlight-section {
+    background-color: #fff;
+  }
+  .separator-o {
+    margin: 0;
+    padding: 10px 0 7px 0;
+  }
+}
+
+@media (min-width: 571px) {
+  #tryit-calendar>.calendar-semi-header {
+    display: none;
+  }
+  .calendar .month-container {
+    height: 290px;
+  }
+  /* Muestra mensajes sin mobil */
+  #mobile-messages {
+    display: none;
+  }
+  .separator-o {
+    padding: 16px 0;
+  }
+}
+
+/* Posicionamiento relativo del botón de registro */
+
+@media (max-width: 991px) {
+  #register-form .submit-fixed>.btn {
+    position: relative;
+  }
+}
+
+/* Tamaño de letra del calendario por resolución */
+
+@media (max-width: 245px) {
+  .bootstrap-datetimepicker-widget.dropdown-menu {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 246px) and (max-width: 300px) {
+  .bootstrap-datetimepicker-widget.dropdown-menu {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 301px) and (max-width:367px) {
+  .bootstrap-datetimepicker-widget.dropdown-menu {
+    font-size: 14px;
+  }
+}
+
+.submit-fixed>.info-title {
+  display: none !important;
+}
+
+.m-bottom15 {
+  margin-bottom: 15px;
+}
+
+/* No adiction */
+
+.noadiction-links {
+  font-size: 22px;
+  line-height: 2;
+}
+
+.noadiction-links a {
+  display: inline-block;
+  color: #000;
+  text-decoration: none;
+}
+
+.noadiction-links>a, .noadiction-links>span {
+  margin-right: 40px;
+}
+
+.noadiction-links>a>img {
+  width: 33px;
+  margin-right: 15px;
+}
+
+.noadiction-links>a.conadic>img {
+  width: 120px;
+}
+
+.noadiction-links>a.salud>img {
+  width: 180px;
+}
+
+span.noadiction-links-separator {
+  color: #0c9;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* Submenu icons */
+
+.fb-icon>img, .tt-icon>img {
+  width: 18px;
+}

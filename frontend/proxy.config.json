@@ -1,0 +1,7 @@
+{
+  "/unicef/*":{
+    "target":"http://rapidpro.datos.gob.mx",
+    "secure":false,
+    "changeOrigin":true
+  }
+}

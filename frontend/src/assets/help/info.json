@@ -1,0 +1,85 @@
+[
+{
+	"opcion":"users",
+	"texto":"Total de usuarias inscritas a misalud por estado."
+},
+{
+	"opcion":"tPregnal",
+	"texto":"Total de embarazadas por estado."
+},
+{
+	"opcion":"tMomBby",
+	"texto":"Total de mamás con bebés menores a 2 años de edad por estado."
+},
+{
+	"opcion":"tPrestador",
+	"texto":"Total de prestadores por estado."
+},
+{
+	"opcion":"m18",
+	"texto":"Total de usuarios de 0-18 años por estado."
+},
+{
+	"opcion":"m35",
+	"texto":"Total de usuarios de 19 a 35 años por estado."
+},
+{
+	"opcion":"mMas",
+	"texto":"Total de usuarios de 35 o más años por estado."
+},
+{
+	"opcion":"hImss",
+	"texto":"Total de usuarios que reportan recibir atención médica en el IMSS por estado."
+},
+{
+	"opcion":"hIsste",
+	"texto":"Total de usuarios que reportan recibir atención médica en el ISSSTE por estado."
+},
+{
+	"opcion":"hSP",
+	"texto":"Total de usuarios que reportan recibir atención médica en el Seguro Popular por estado."
+},
+{
+	"opcion":"hInst",
+	"texto":"Total de usuarios que reportan recibir atención médica en Inst. Nac. por estado."
+},
+{
+	"opcion":"hIPemex",
+	"texto":"Total de usuarios que reportan recibir atención médica en PEMEX por estado."
+},
+{
+	"opcion":"hSedena",
+	"texto":"Total de usuarios que reportan recibir atención médica en SEDENA/SEMAR por estado."
+},
+{
+	"opcion":"hFarm",
+	"texto":"Total de usuarios que reportan recibir atención médica en farmacias por estado."
+},
+{
+	"opcion":"hPrivado",
+	"texto":"Total de usuarios que reportan recibir atención médica privada por estado."
+},
+{
+	"opcion":"hOtro",
+	"texto":"Total de usuarios que reportan recibir otro tipo de atención médica por estado."
+},
+{
+	"opcion":"mSMS",
+	"texto":"Total de usuarias que reciben el contenido de misalud por SMS por estado."
+},
+{
+	"opcion":"mFB",
+	"texto":"Total de usuarias que reciben el contenido de misalud por Facebook  por estado."
+},
+{
+	"opcion":"mTW",
+	"texto":"Total de usuarias que reciben el contenido de misalud por Twitter  por estado."
+},
+{
+	"opcion":"bbyState",
+	"texto":"Total de bebés menores a 2 años de edad con mamás en misalud por estado."
+}
+
+
+
+]

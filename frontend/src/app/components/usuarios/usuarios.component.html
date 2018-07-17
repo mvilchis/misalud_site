@@ -1,0 +1,730 @@
+<section class="titulos">
+  <div class="container">
+
+    <div class="row">
+
+      <div class=" col-md-12 ">
+        <h4>
+       USUARIOS</h4>
+        <p>
+          En esta sección podrás ver información detallada de las usuarias de mi<strong>salud</strong>. Explora las distintas gráficas para ver cómo se distribuyen por tipo, medio, edad, entre otras características. Utiliza los íconos dentro de cada gráfica
+          si deseas expandirlas o imprimirlas.
+
+
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<section style="background-color: #efefef ;padding-top:2% ;padding-bottom: 2% ">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <h3 class="text_date">Inicio</h3>
+
+
+        <div class="select_date_to">
+          <select class="form-control " [(ngModel)]="i_mes" (change)="changeMonth(1)">
+
+                            <option *ngFor="let mes of meses_inicio;let i =index " value="{{i+1}}">{{mes}}</option>
+               </select>
+        </div>
+
+        <div class="select_date_to">
+          <select class="form-control " [(ngModel)]="i_year" (change)="changeMonth(1)">
+
+                 <option *ngFor="let year of years_inicio" value="{{year}}">{{year}}</option>
+            </select>
+
+        </div>
+
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <h3 class="text_date">Fin</h3>
+        <div class="select_date_to">
+          <select class="form-control " [(ngModel)]="f_mes" (change)="changeMonth(2)">
+
+                          <option *ngFor="let mes of meses_fin; let i =index " value="{{i+1}}">{{mes}}</option>
+
+             </select>
+        </div>
+        <div class="select_date_to">
+          <select class="form-control " [(ngModel)]="f_year" (change)="changeMonth(2)">
+
+               <option *ngFor="let year of years_fin" value="{{year}}">{{year}}</option>
+
+              </select>
+        </div>
+
+
+
+
+      </div>
+      <div *ngIf="invalido" class=" col-md-6 " style="padding-top:4%;">
+        <div class="alert alert-danger alert-dismissible " role="alert">
+          <strong>La fecha inicial </strong> no puede ser mayor a la fecha final.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+
+</section>
+
+<section style="background-color: #efefef;padding-bottom:2%">
+
+  <div class="container">
+    <h4 style="font-weight: 600;color: #00556b">USUARIOS</h4>
+    <div class="row">
+
+
+
+
+      <div class="col-md-4">
+        <div class="card ">
+          <div class="header bg-green">
+            <h2>
+                                 Todos los usuarios
+                                 <ng-template #popContent>Tasa de respuesta (porcentaje de mensajes finalizados por la usuaria del total de mensajes de doble vía recibidos) por edad.</ng-template>
+
+                           </h2>
+            <div id="help_usr" class="tool_help"><span></span>
+              <p>{{help_usr}}</p>
+            </div>
+            <ul class="header-dropdown m-r-0">
+
+              <li>
+
+                <img src="assets/img/help.png" alt="" (mousemove)="help_enter(0)" (mouseout)="help_out(0)">
+
+
+              </li>
+            </ul>
+
+          </div>
+          <div class="header_three bg-white">
+
+            <div class="select">
+              <select [(ngModel)]="op_user" (change)="varChangeUser()" class="form-control " style="border:none">
+
+    <option value="mAge">Edad mamá</option>
+     <option value="tAten">Atención médica</option>
+
+   </select>
+            </div>
+          </div>
+
+
+
+          <div class="body">
+
+
+            <div>
+              <p class="total_text">Total: <strong> {{totalUsr |number}}</strong>
+                <button type="button" class="expandir" data-toggle="modal" data-target="#modal_usr" [disabled]="!chart_usr"><img src="assets/img/expand.png" alt="Expandir"></button>
+                <button type="button" class="expandir" (click)="descarga('#chartusr','#lgn_bar_usr','todoUsuarios')" [disabled]="!chart_usr"><img src="assets/img/print.png" alt="Descargar"></button>
+
+              </p>
+
+
+            </div>
+
+            <div *ngIf="!chart_usr" style="height:260px;padding:20%">
+
+              <div class="alert alert-success text-center" role="alert">
+                <strong>No hay datos disponibles</strong>
+              </div>
+
+            </div>
+
+
+            <div id="chartusr" style="width:100%"></div>
+
+
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="content-lgnd-usuarios">
+                <div class="lgnd-usuarios" id="lgn_bar_usr"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="col-md-4">
+        <div class="card">
+
+          <div class="header bg-white">
+            <h2>
+                                Todos los usuarios por medio
+                            </h2>
+            <div id="help_usr_channel" class="tool_help"><span></span>
+              <p>Total de usuarias por medio en el cual están inscritas a misalud.</p>
+            </div>
+            <ul class="header-dropdown m-r-0">
+
+              <li>
+                <img src="assets/img/help.png" alt="" (mousemove)="help_enter(1)" (mouseout)="help_out(1)">
+
+
+              </li>
+            </ul>
+          </div>
+
+          <div class="body">
+
+
+            <div>
+              <p class="total_text">Total: <strong> {{total_usr_channel | number}}</strong>
+                <button type="button" class="expandir" data-toggle="modal" data-target="#modal_usr_channel" [disabled]="!chart_usr_channel"><img src="assets/img/expand.png" alt="Expandir"></button>
+                <button type="button" class="expandir" (click)="descarga('#chartChannel','#lgnChannel','usuariosMedio')" [disabled]="!chart_usr_channel"><img src="assets/img/print.png" alt="Descargar"></button>
+
+
+              </p>
+
+
+            </div>
+            <div *ngIf="!chart_usr_channel" style="height:260px;padding:20%">
+
+              <div class="alert alert-success text-center" role="alert">
+                <strong>No hay datos disponibles</strong>
+              </div>
+
+            </div>
+
+
+            <div id="chartChannel" style="width:100%;padding:8% 0"></div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="content-lgnd-usuarios">
+                <div class="lgnd-usuarios" id="lgnChannel">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="header bg-white">
+            <h2>
+                                Todos los usarios por tipo
+
+                            </h2>
+            <div id="help_usr_type" class="tool_help"><span></span>
+              <p>Total de usuarias por tipo (embarazo, mamá o prestador de servicios de salud).</p>
+            </div>
+            <ul class="header-dropdown m-r-0">
+
+              <li>
+                <img src="assets/img/help.png" alt="" (mousemove)="help_enter(2)" (mouseout)="help_out(2)">
+
+
+
+              </li>
+            </ul>
+          </div>
+
+
+          <div class="body">
+            <div align="center">
+              <p class="total_text">Total: <strong> {{total_usr_type |number}}</strong>
+                <button type="button" class="expandir" data-toggle="modal" data-target="#modal_usr_type" [disabled]="!chart_usr_type"><img src="assets/img/expand.png" alt="Expandir"></button>
+                <button type="button" class="expandir" (click)="descarga('#chart','#lgnUsrtype','usuariosTipo')" [disabled]="!chart_usr_type"><img src="assets/img/print.png" alt="Descargar"></button>
+
+              </p>
+            </div>
+            <div *ngIf="!chart_usr_type" style="height:260px;padding:20%">
+
+              <div class="alert alert-success text-center" role="alert">
+                <strong>No hay datos disponibles</strong>
+              </div>
+
+            </div>
+
+
+
+            <div id="chart" style="width:100%;padding: 7.5% 0;">
+            </div>
+
+
+
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="content-lgnd-usuarios">
+                <div class="lgnd-usuarios" id="lgnUsrtype">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</section>
+
+
+<div class="modal fade" id="modal_usr" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="largeModalLabel">Todos los usuarios</h4>
+      </div>
+      <div class="modal-body">
+
+        <div id="chartusr_expand">
+          <div id="tool_usr_expand" class="tooltipMapa"></div>
+        </div>
+        <div id="lgn_bar_usr_expand" style=" border-top: 1px solid #efefef; padding: 2% 0 1% 1%"></div>
+
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-info " data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modal_usr_channel" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="largeModalLabel">Todos los usuarios por medio</h4>
+      </div>
+      <div class="modal-body">
+
+        <div id="chartChannel_expand" style="width:100%"></div>
+        <div id="lgnChannel_expand" style=" border-top: 1px solid #efefef; padding: 2% 0 1% 1%"></div>
+
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-info " data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modal_usr_type" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="largeModalLabel">Todos los usuarios por tipo</h4>
+      </div>
+      <div class="modal-body" align="center">
+
+        <div id="chart_expand"></div>
+        <div id="lgnUsrtype_expand" style=" border-top: 1px solid #efefef; padding: 2% 0 1% 1%"></div>
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-info " data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<section style="background-color: #efefef;padding-bottom:1%">
+  <div class="container">
+    <h4 style="font-weight: 600;color: #00556b">BEBÉS</h4>
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+        <div class="card">
+          <div class="header bg-green">
+            <h2>
+                        Total de bebés
+
+                  </h2>
+            <div id="help_bby" class="tool_help"><span></span>
+              <p>{{help_bby}}</p>
+            </div>
+            <ul class="header-dropdown m-r-0">
+
+              <li>
+                <img src="assets/img/help.png" alt="" (mousemove)="help_enter(3)" (mouseout)="help_out(3)">
+
+
+              </li>
+            </ul>
+
+          </div>
+          <div class="header_three bg-white">
+            <div class="select">
+              <select class="custom-select " (change)="varChangeBaby()" style="border: none" [(ngModel)]="op_baby">
+
+      <option value="bAge">Edad bebé (meses)</option>
+      <option value="bMom">Edad mamá</option>
+
+
+      </select>
+            </div>
+          </div>
+
+          <div class="body">
+
+
+            <div align="center">
+              <p class="total_text">Total: <strong> {{totalBby |number}}</strong>
+                <button type="button" class="expandir" data-toggle="modal" data-target="#modal_bby" [disabled]="!chart_bby"> <img src="assets/img/expand.png" alt="Expandir"></button>
+                <button type="button" class="expandir" (click)="descarga('#chartbby','#lgn_bar_bby','totalBebe')" [disabled]="!chart_bby"><img src="assets/img/print.png" alt="Descargar"></button>
+              </p>
+
+
+            </div>
+            <div *ngIf="!chart_bby" style="height:220px;padding:20%">
+
+              <div class="alert alert-success text-center" role="alert">
+                <strong>No hay datos disponibles</strong>
+              </div>
+
+            </div>
+
+
+            <div id="chartbby" style="width:100%"></div>
+
+
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="content-lgnd-bby">
+                <div class="lgnd-bby" id="lgn_bar_bby"></div>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+        <div class="card">
+
+          <div class="header bg-white">
+            <h2>
+                                Total de bebés por medio
+                            </h2>
+            <div id="help_bby_channel" class="tool_help"><span></span>
+              <p>Total de bebés por medio en el cual sus mamás están inscritas.</p>
+            </div>
+            <ul class="header-dropdown m-r-0">
+
+              <li>
+                <img src="assets/img/help.png" alt="" (mousemove)="help_enter(4)" (mouseout)="help_out(4)">
+
+
+              </li>
+            </ul>
+          </div>
+
+
+          <div class="body">
+
+            <div align="center">
+
+              <p class="total_text">Total: <strong> {{total_bby_type | number}}</strong>
+                <button type="button" class="expandir" data-toggle="modal" data-target="#modal_bby_channel" [disabled]="!chart_bby_channel"><img src="assets/img/expand.png" alt="Expandir"></button>
+                <button type="button" class="expandir" (click)="descarga('#chartChannelbby','#chartChannelbby','bebesMedio')" [disabled]="!chart_bby_channel"><img src="assets/img/print.png" alt="Descargar"></button>
+
+
+              </p>
+
+
+            </div>
+            <div *ngIf="!chart_bby_channel" style="height:220px;padding:20%">
+
+              <div class="alert alert-success text-center" role="alert">
+                <strong>No hay datos disponibles</strong>
+              </div>
+
+            </div>
+
+
+            <div id="chartChannelbby" style="width:100%;padding:8% 0"></div>
+
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="content-lgnd-bby">
+                <div class="lgnd-bby" id="lgnChannelbby">
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+        <div class="card">
+          <div class="header bg-white">
+            <h2>
+                                Atención médica
+                            </h2>
+            <div id="help_bby_type" class="tool_help"><span></span>
+              <p>Total de bebés por lugar donde la mamá reporta recibir atención médica.</p>
+            </div>
+            <ul class="header-dropdown m-r-0">
+
+              <li>
+                <img src="assets/img/help.png" alt="" (mousemove)="help_enter(5)" (mouseout)="help_out(5)">
+
+
+
+              </li>
+            </ul>
+          </div>
+
+
+
+          <div class="body">
+
+            <div align="center">
+
+              <p class="total_text">Total: <strong> {{bby_atencion[0] | number}}</strong>
+                <button type="button" class="expandir" (click)="descarga_progress()" [disabled]="!chart_bby_type"><img src="assets/img/print.png" alt="Descargar"></button>
+
+
+              </p>
+
+
+            </div>
+            <div class="content-usr-atencion">
+              <div *ngIf="!chart_bby_type" style="height:260px;padding:20%">
+
+                <div class="alert alert-success text-center" role="alert">
+                  <strong>No hay datos disponibles</strong>
+                </div>
+
+              </div>
+              <div id="chart_progres" *ngIf="chart_bby_type" style="width:100%">
+
+                <div class="row" *ngFor="let data of bby_atencion[1]" align="center">
+
+                  <div class=" col-md-4 title_aten" style="padding:1px 3px;margin:0px">
+                    <p>{{data.key}}</p>
+                  </div>
+                  <div class=" col-md-6 " style="padding:0px 5%;margin:0px">
+                    <div class="progress" style="height:11px ">
+                      <div class="progress-bar" role="progressbar" [ngStyle]="{'width':data.porciento }" style=" background-color: #005a6d" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                  <div class=" col-md-2 num_aten " style="padding:0px 1px;margin:0px">
+                    <p>{{data.count | number}}</p>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<div class="modal fade " id="modal_bby" tabindex="-1" role="dialog">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="largeModalLabel">Total de bebés</h4>
+      </div>
+      <div class="modal-body">
+
+        <div id="chartbby_expand" style="width:100%">
+          <div id="tool_bby_expand" class="tooltipMapa"></div>
+        </div>
+        <div id="lgn_bar_bby_expand" style=" border-top: 1px solid #efefef; padding: 2% 0 1% 1%"></div>
+
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-info " data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal_bby_channel" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="largeModalLabel">Total de bebés por medio</h4>
+      </div>
+      <div class="modal-body">
+
+
+        <div id="chartChannelbby_expand" style="width:100%;padding-top:5%"></div>
+
+
+        <div id="lgnChannelbby_expand" style=" border-top: 1px solid #efefef; padding: 2% 0 1% 1%">
+
+        </div>
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-info " data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section style="background-color: #efefef;padding-bottom:4%">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="card" style="width: 100%">
+          <div class="header bg-white">
+            <h2>
+                              Total de bebés por semana de gestación al nacer
+                           </h2>
+            <div id="help_sg" class="tool_help_g"><span></span>
+              <p>Total de usuarias embarazadas por semana de gestación
+              </p>
+            </div>
+            <ul class="header-dropdown m-r-0">
+
+
+              <li>
+                <img src="assets/img/help.png" alt="" (mousemove)="help_enter(6)" (mouseout)="help_out(6)">
+
+
+              </li>
+
+            </ul>
+          </div>
+
+
+          <div class="body" style="padding-left:4%">
+
+            <button type="button" class="expandir" (click)="descarga_line()" [disabled]="!chart_bby_channel"><img src="assets/img/print.png" alt="Descargar"></button>
+
+
+
+            <div *ngIf="!chart_sg" style="height:220px;padding:20%">
+
+              <div class="alert alert-success text-center" role="alert">
+                <strong>No hay datos disponibles</strong>
+              </div>
+
+            </div>
+
+            <div id="chart_line" aling="center"></div>
+
+
+
+          </div>
+
+
+        </div>
+
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <button class="descarga_csv" (click)="generate_csv()">
+                Descargar datos  <img src="assets/img/dta_csv.png">
+          </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="modal fade" id="modal_sgestacion" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="largeModalLabel">Total de usuarias embarazadas por semana de gestación</h4>
+      </div>
+      <div class="modal-body">
+
+
+        <div id="chart_line_expand" style="width:100%;padding-top:5%"></div>
+
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-info " data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="f_impresion" id="c_bloqueo">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-3">
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-5">
+        <div class="card">
+          <div class="header bg-white">
+            <h2><i class="spinner-2"></i> Generando documento</h2>
+          </div>
+          <div class="body" aling="center">
+            <div id="c_impresion" style=" width:400px">
+              <div id="i_title"></div>
+              <div id="i_img"></div>
+              <div id="i_legend"></div>
+              <div id="i_help"></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="f_impresion" id="c_bloqueo_l">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-9">
+        <div class="card">
+          <div class="header bg-white">
+            <h2><i class="spinner-2"></i> Generando documento</h2>
+          </div>
+          <div class="body" aling="center" style="padding-left:10%">
+            <div id="c_impresion_l" style="width:800px">
+              <div id="i_title_l"></div>
+              <div id="i_img_l"></div>
+              <div id="i_legend_l"></div>
+              <div id="i_help_l"></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

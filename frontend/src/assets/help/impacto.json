@@ -1,0 +1,181 @@
+[{
+		"opcion": "calidad_crecimuterinodoble_mAge",
+		"texto": "Total que respondió sí/no a la pregunta ¿Le midieron el crecimiento de su abdomen? por edad."
+
+	}, {
+		"opcion": "calidad_crecimuterinodoble_sGestacion",
+		"texto": "Total que respondió sí/no a la pregunta ¿Le midieron el crecimiento de su abdomen? por semana del embarazo."
+
+	},
+	{
+		"opcion": "calidad_crecimuterinodoble_aMedica",
+		"texto": "Total que respondió sí/no a la pregunta ¿Le midieron el crecimiento de su abdomen? por lugar donde recibe atención médica."
+	},
+	{
+		"opcion": "calidad_crecimuterinodoble_medio",
+		"texto": "Total que respondió sí/no a la pregunta ¿Le midieron el crecimiento de su abdomen? por medio donde recibe la información."
+	},
+	{
+		"opcion": "calidad_signosalarmadoble_mAge",
+		"texto": "Total que respondió sí/no a la pregunta ¿le explicaron los signos de alarma? por edad."
+
+	},
+	{
+		"opcion": "calidad_signosalarmadoble_sGestacion",
+		"texto": "Total que respondió sí/no a la pregunta ¿le explicaron los signos de alarma? por semana del embarazo."
+
+	},
+	{
+		"opcion": "calidad_signosalarmadoble_aMedica",
+		"texto": "Total que respondió sí/no a la pregunta ¿le explicaron los signos de alarma? por lugar donde recibe atención médica."
+
+	},
+	{
+		"opcion": "calidad_signosalarmadoble_medio",
+		"texto": "Total que respondió sí/no a la pregunta ¿le explicaron los signos de alarma? por medio donde recibe la información."
+
+	},
+	{
+		"opcion": "calidad_presionarterialdoble_mAge",
+		"texto": "Total que respondió sí/no a la pregunta ¿Le midieron su presión arterial? por edad."
+
+	}, {
+		"opcion": "calidad_presionarterialdoble_sGestacion",
+		"texto": "Total que respondió sí/no a la pregunta ¿Le midieron su presión arterial? por semana del embarazo."
+
+	}, {
+		"opcion": "calidad_presionarterialdoble_aMedica",
+		"texto": "Total que respondió sí/no a la pregunta ¿Le midieron su presión arterial? por lugar donde recibe atención médica."
+
+	}, {
+		"opcion": "calidad_presionarterialdoble_medio",
+		"texto": "Total que respondió sí/no a la pregunta ¿Le midieron su presión arterial? por medio donde recibe la información."
+
+	}, {
+		"opcion": "calidad_antropometriadoble_mAge",
+		"texto": "Total que respondió sí/no a la pregunta ¿Se pesó y midió al bebé? por edad."
+
+	}, {
+		"opcion": "calidad_antropometriadoble_bbyAage",
+		"texto": "Total que respondió sí/no a la pregunta ¿Se pesó y midió al bebé? por edad del bebé (meses)."
+
+	}, {
+		"opcion": "calidad_antropometriadoble_sGestacion",
+		"texto": "Total que respondió sí/no a la pregunta ¿Se pesó y midió al bebé? por semana de gestación al nacer."
+
+	}, {
+		"opcion": "calidad_antropometriadoble_aMedica",
+		"texto": "Total que respondió sí/no a la pregunta ¿Se pesó y midió al bebé? por lugar donde recibe atención médica."
+
+	}, {
+		"opcion": "calidad_antropometriadoble_medio",
+		"texto": "Total que respondió sí/no a la pregunta ¿Se pesó y midió al bebé? por medio donde recibe la información."
+
+	}, {
+		"opcion": "calidad_lactanciadoble_mAge",
+		"texto": "Total que respondió sí/no a la pregunta  ¿Se les dio tips de lactancia? por edad."
+
+	}, {
+		"opcion": "calidad_lactanciadoble_bbyAage",
+		"texto": "Total que respondió sí/no a la pregunta  ¿Se les dio tips de lactancia? por edad del bebé (meses)."
+
+	},
+
+	{
+		"opcion": "calidad_lactanciadoble_sGestacion",
+		"texto": "Total que respondió sí/no a la pregunta  ¿Se les dio tips de lactancia? por semana de gestación al nacer."
+
+	},
+
+	{
+		"opcion": "calidad_lactanciadoble_aMedica",
+		"texto": "Total que respondió sí/no a la pregunta  ¿Se les dio tips de lactancia? por lugar donde recibe atención médica."
+
+	},
+
+	{
+		"opcion": "calidad_lactanciadoble_medio",
+		"texto": "Total que respondió sí/no a la pregunta  ¿Se les dio tips de lactancia? por medio donde recibe la información."
+
+	},
+
+	{
+		"opcion": "calidad_vacunasdoble_mAge",
+		"texto": "Total que respondió sí/no a la pregunta ¿Le pusieron las vacunas que le tocaban al bebé? por edad."
+
+	},
+
+	{
+		"opcion": "calidad_vacunasdoble_bbyAage",
+		"texto": "Total que respondió sí/no a la pregunta ¿Le pusieron las vacunas que le tocaban al bebé? por edad del bebé (meses)."
+
+	},
+
+	{
+		"opcion": "calidad_vacunasdoble_sGestacion",
+		"texto": "Total que respondió sí/no a la pregunta ¿Le pusieron las vacunas que le tocaban al bebé? por semana de gestación al nacer."
+
+	},
+
+	{
+		"opcion": "calidad_vacunasdoble_aMedica",
+		"texto": "Total que respondió sí/no a la pregunta ¿Le pusieron las vacunas que le tocaban al bebé? por lugar donde recibe atención médica."
+
+	},
+
+	{
+		"opcion": "calidad_vacunasdoble_medio",
+		"texto": "Total que respondió sí/no a la pregunta '¿Le pusieron las vacunas que le tocaban al bebé?' por medio donde recibe la información."
+
+	}, {
+		"opcion": "simple_tipo",
+		"texto": "Total de usuarias que se dieron de baja de misalud, por tipo (embarazo, mamá o prestador de servicios de salud)."
+
+	}, {
+		"opcion": "simple_mom",
+		"texto": "Total de usuarias que se dieron de baja de misalud, por edad de la mamá."
+
+	}, {
+		"opcion": "simple_bby",
+		"texto": "Total de usuarias que se dieron de baja de misalud, por edad del bebé."
+
+	}, {
+		"opcion": "simple_aten",
+		"texto": "Total de usuarias que se dieron de baja de misalud, por lugar donde recibe atención médica."
+
+	}, {
+		"opcion": "simple_medio",
+		"texto": "Total de usuarias que se dieron de baja de misalud, por medio donde recibe la información."
+
+	}, {
+		"opcion": "simple_razon",
+		"texto": "Total de usuarias que se dieron de baja de misalud, por razón de cancelación."
+
+	}, {
+		"opcion": "tree_tipo",
+		"texto": "Alertas canalizadas al 01800-MATERNA, por tipo (embarazo, mamá o prestador de servicios de salud)."
+
+	}, {
+		"opcion": "tree_mom",
+		"texto": "Alertas canalizadas al 01800-MATERNA, por edad de la mamá."
+
+	}, {
+		"opcion": "tree_bby",
+		"texto": "Alertas canalizadas al 01800-MATERNA, por edad del bebé."
+
+	}, {
+		"opcion": "tree_aten",
+		"texto": "Alertas canalizadas al 01800-MATERNA,  por lugar donde recibe atención médica."
+
+	}, {
+		"opcion": "tree_medio",
+		"texto": "Alertas canalizadas al 01800-MATERNA, por medio donde recibe la información."
+
+	}, {
+		"opcion": "tree_razon",
+		"texto": "Alertas canalizadas al 01800-MATERNA, por tipo de alerta."
+
+	}
+
+
+]

@@ -1,0 +1,303 @@
+<section style="margin: 0px; background-color: #efefef; padding: 2%;margin-top:2%">
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-4">
+
+
+        <div class="card card_map_info">
+          <div class="header_three bg-green">
+            <div class="select_white">
+              <select id="map_var" class="form-control" [(ngModel)]="variable" (change)="changeVar()" style="border: none;background-color: transparent;color:white;font-weight:600">
+
+                          <option value='usr'  style="background-color:#00556b">Total de usuarias</option>
+                          <option value='bby' style="background-color:#00556b">Total de bebés</option>
+
+                        </select>
+
+            </div>
+
+
+          </div>
+
+          <div *ngIf="variable=='usr'" class="header_three bg-white">
+            <div class="select">
+              <select id="map_sub" class="form-control " (change)="varChange(1)" [(ngModel)]="opcionsub" style="border: none">
+
+
+                              <option  *ngFor="let op of subvariable"  [ngValue]="op.value">{{op.texto}}</option>
+
+                            </select>
+            </div>
+          </div>
+
+          <div class="header_two bg-white">
+            <div class="row">
+
+              <div class="col-md-4 text_map">
+                <p>Inicio</p>
+              </div>
+              <div class="col-md-4">
+
+                <div class="selectDate">
+                  <select class="custom-select " [(ngModel)]="i_mes" (change)="changeDate()" style="border: none ; border-radius: 0px">
+
+                                                      <option *ngFor="let mes of meses_inicio;let i =index " value="{{i+1}}">{{mes}}</option>
+                                          </select>
+
+                </div>
+              </div>
+              <div class="col-md-4">
+
+                <div class="selectDate">
+                  <select class="custom-select " [(ngModel)]="i_year" (change)="changeMonth(1)" style="border: none;border-radius: 0px">
+
+                                              <option *ngFor="let year of years_inicio" value="{{year}}">{{year}}</option>
+                                         </select>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="header_two bg-white">
+            <div class="row">
+
+              <div class="col-md-4 text_map">
+                <p>Fin</p>
+              </div>
+              <div class="col-md-4">
+
+                <div class="selectDate">
+
+
+                  <select class="custom-select " [(ngModel)]="f_mes" (change)="changeDate()" style="border: none; border-radius: 0px">
+
+                                                                              <option *ngFor="let mes of meses_fin; let i =index " value="{{i+1}}">{{mes}}</option>
+
+                                                                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+
+                <div class="selectDate">
+                  <select class="custom-select " [(ngModel)]="f_year" (change)="changeMonth(2)" style="border: none;border-radius: 0px">
+
+                                         <option *ngFor="let year of years_fin" value="{{year}}">{{year}}</option>
+
+                                        </select>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+          <div class="header_three bg-white">
+            <div class="select">
+              <select [(ngModel)]="estado" (change)="valorEstatal()" class="custom-select " style="border: none; ">
+                        <option  value="none">Estado</option>
+                        <option *ngFor="let estado of estados"[ngValue]="estado.cve_ent">{{estado.nom_ent}} </option>
+                        </select>
+            </div>
+          </div>
+          <div class="header_three bg-white">
+            <div class="select">
+              <select [(ngModel)]="municipio" (change)="change_mun()" class="custom-select " style="border: none">
+                       <option value="none">Municipio</option>
+                       <option *ngFor="let mun of municipios"[ngValue]="mun.cve_comb">{{mun.nom_mun}} </option>
+                       </select>
+            </div>
+          </div>
+
+
+
+
+        </div>
+
+        <div *ngIf="invalido" class="alert alert-danger alert-dismissible " role="alert">
+          <strong>La fecha inicial </strong> no puede ser mayor a la fecha final.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+      </div>
+
+
+      <div class="col-md-8">
+        <div class="card card_map_info">
+          <div class="header bg-white">
+            <h2>
+                               Tabla “{{varText}}”
+                                </h2>
+            <div id="help_table" class="tool_help_g"><span></span>
+              <p>{{help_text}}</p>
+            </div>
+            <ul class="header-dropdown m-r-0">
+
+              <li>
+                <img src="assets/img/help.png" alt="" (mousemove)="help_enter(0)" (mouseout)="help_out(0)">
+
+
+              </li>
+
+
+            </ul>
+          </div>
+
+
+
+          <div class="body">
+
+            <div class="row" style="padding:5% 5% 5% 5%;">
+
+
+
+              <div class="col-xs-6  col-sm-6 col-md-8 ">
+                <p class="map_info_title">{{varText}}</p>
+              </div>
+              <div class=" col-xs-6 col-sm-6 col-md-4 ">
+                <div class="select_info_var">
+                  <select class="custom-select " (change)="varChange(2)" [(ngModel)]="opcionsub_two">
+
+                  <option value="none">Comparar con:</option>
+                <option  *ngFor="let op of subvariable_two" [ngValue]="op.value">{{op.texto}}</option>
+
+              </select>
+                </div>
+                <br>
+
+              </div>
+
+              <div class=" col-md-6" aling="right" style="padding-right:5%">
+
+                <p [ngClass]="{map_info_txt: estado != 'none',map_info_select_txt: estado == 'none'  }" style="  text-align: right;">Nacional</p>
+
+
+              </div>
+
+              <div class="col-xs-6 col-sm-6  col-md-3">
+                <p [ngClass]="{map_info_txt: estado != 'none',map_info_select_txt: estado == 'none'  }"> {{v_nacioal |number}}</p>
+              </div>
+              <div class="col-xs-6 col-sm-6  col-md-3 ">
+                <p [ngClass]="{map_info_txt: estado != 'none',map_info_select_txt: estado == 'none'  }"> {{v_nacioal_two |number}}</p>
+              </div>
+              <div class="col-md-12" style="border-bottom: 1px solid #efefef;width:100%">
+              </div>
+              <div class=" col-md-6" aling="right" style="padding-right:5%">
+
+                <p *ngIf="estado=='none'" [ngClass]="{map_info_txt: estado == 'none'&& municipio=='none',map_info_select_txt: estado != 'none'&& municipio=='none',map_info_txte: estado != 'none'&& municipio!='none'    }" style="  text-align: right;">Estatal</p>
+                <p *ngIf="estado!='none'" [ngClass]="{map_info_txt: estado == 'none'&& municipio=='none',map_info_select_txt: estado != 'none'&& municipio=='none',map_info_txte: estado != 'none'&& municipio!='none'    }" style="  text-align: right;">{{name_estado}}</p>
+
+              </div>
+
+              <div class=" col-xs-6 col-sm-6 col-md-3">
+                <p [ngClass]="{map_info_txt: estado == 'none'&& municipio=='none',map_info_select_txt: estado != 'none'&& municipio=='none',  map_info_txte: estado != 'none'&& municipio!='none'   }">{{v_estatal |number}}</p>
+              </div>
+
+              <div class=" col-xs-6 col-sm-6 col-md-3">
+                <p [ngClass]="{map_info_txt: estado == 'none'&& municipio=='none',map_info_select_txt: estado != 'none'&& municipio=='none',  map_info_txte: estado != 'none'&& municipio!='none'   }"> {{v_estatal_two |number}}</p>
+              </div>
+              <div class="col-md-12" style="border-bottom: 1px solid #efefef;width:100%">
+              </div>
+              <div class=" col-md-6" aling="right" style="padding-right:5%">
+                <p *ngIf="municipio=='none'" [ngClass]="{map_info_txt: municipio == 'none',map_info_select_txt: municipio != 'none'  }" style="  text-align: right;"> Municipal</p>
+                <p *ngIf="municipio!='none'" [ngClass]="{map_info_txt: municipio == 'none',map_info_select_txt: municipio != 'none'  }" style="  text-align: right;"> {{name_municipio}}</p>
+              </div>
+
+              <div class=" col-xs-6 col-sm-6 col-md-3 ">
+                <p [ngClass]="{map_info_txt: municipio == 'none',map_info_select_txt: municipio != 'none'  }"> {{v_municipal |number}}</p>
+              </div>
+
+              <div class=" col-xs-6 col-sm-6  col-md-3">
+                <p [ngClass]="{map_info_txt: municipio == 'none',map_info_select_txt: municipio != 'none'  }">{{v_municipal_two |number}}</p>
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header bg-white">
+            <h2>
+                              Línea del tiempo de “{{varText}}” - <span *ngIf="estado=='none'&& municipio=='none'"> Nacional</span><span *ngIf="estado!='none'&&municipio=='none'"> {{name_estado}}</span><span *ngIf="estado!='none'&&municipio!='none'">{{name_municipio}}, {{name_estado}}</span>
+                                 </h2>
+            <div id="help_line" class="tool_help_g"><span></span>
+              <p>{{help_text}}</p>
+            </div>
+            <ul class="header-dropdown m-r-0">
+
+              <li>
+                <img src="assets/img/help.png" alt="" (mousemove)="help_enter(1)" (mouseout)="help_out(1)">
+
+
+
+              </li>
+            </ul>
+          </div>
+          <div class="body">
+
+            <button type="button" class="expandir" (click)="descarga()" [disabled]="!chart_dta"><img src="assets/img/print.png" alt="Descargar"></button>
+            <div *ngIf="loading" style="width:100%;z-index:9999;top:50%" align="center">
+              <h3 style="font-weight:300"><i class="spinner-1"></i> Cargando...</h3></div>
+            <div *ngIf="!chart_dta" style="height:220px;padding:5%">
+
+              <div class="alert alert-success text-center" role="alert">
+                <strong>No hay datos disponibles</strong>
+              </div>
+
+            </div>
+
+            <div id="c_chart">
+              <div id="chart"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-3 ">
+        <br>
+        <button class="regreso_mapa" routerLink="/" style="color: #fff"> Regresar a mapa</button>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <br>
+        <button class="descarga_csv" (click)="build_dta_csv()">
+                      Descargar datos  <img src="assets/img/dta_csv.png">
+                </button>
+      </div>
+
+
+    </div>
+  </div>
+
+</section>
+
+<div class="f_impresion" id="c_bloqueo_l">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-9">
+        <div class="card">
+          <div class="header bg-white">
+            <h2><i class="spinner-2"></i> Generando documento</h2>
+          </div>
+          <div class="body" aling="center" style="padding-left:10%">
+            <div id="c_impresion_l" style="width:800px">
+              <div id="i_title_l"></div>
+              <div id="i_img_l"></div>
+              <div id="i_legend_l"></div>
+              <div id="i_help_l"></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
